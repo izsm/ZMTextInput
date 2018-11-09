@@ -8,16 +8,16 @@
 
 import UIKit
 
-class ZMTextView: UITextView {
+open class ZMTextView: UITextView {
 
     /// 是否移除emoji 默认为 false
-    var isRemoveEmoji: Bool = false
+    open var isRemoveEmoji: Bool = false
     /// 最大限制文本长度, 默认不限制长度
-    var maxLength: Int = LONG_MAX
+    open var maxLength: Int = LONG_MAX
     /// 设定文本改变回调
-    var didValueChange: (UITextView) -> Void = { _ in }
+    open var didValueChange: (UITextView) -> Void = { _ in }
     /// 设定文本达到最大长度的回调
-    var didMaxLength: (UITextView) -> Void = { _ in }
+    open var didMaxLength: (UITextView) -> Void = { _ in }
 
     deinit {
         NotificationCenter.default.removeObserver(self)
@@ -25,7 +25,7 @@ class ZMTextView: UITextView {
 }
 
 extension ZMTextView {
-    override func becomeFirstResponder() -> Bool {
+    override open func becomeFirstResponder() -> Bool {
         let become = super.becomeFirstResponder()
         // 成为第一响应者时注册通知监听文本变化
         NotificationCenter.default.addObserver(self, selector: #selector(textViewDidChange(notification:)), name: UITextView.textDidChangeNotification, object: nil)
@@ -33,7 +33,7 @@ extension ZMTextView {
         return become
     }
     
-    override func resignFirstResponder() -> Bool {
+    override open func resignFirstResponder() -> Bool {
         let resign = super.resignFirstResponder()
         // 注销第一响应者时移除文本变化的通知, 以免影响其它的`UITextField`对象.
         NotificationCenter.default.removeObserver(self, name: UITextView.textDidChangeNotification, object: nil)
