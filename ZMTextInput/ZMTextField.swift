@@ -11,10 +11,13 @@ open class ZMTextField: UITextField {
     
     /// 是否移除emoji 默认为 false
     open var isRemoveEmoji: Bool = false
+    
     /// 最大限制文本长度, 默认不限制长度
     open var maxLength: Int = LONG_MAX
+    
     /// 设定文本改变回调
     open var didValueChange: (UITextField) -> Void = { _ in }
+    
     /// 设定文本达到最大长度的回调
     open var didMaxLength: (UITextField) -> Void = { _ in }
     
