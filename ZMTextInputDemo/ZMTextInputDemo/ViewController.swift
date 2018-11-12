@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     }()
     
     private lazy var textField2: ZMTextField = {
-        let textField2 = ZMTextField(frame: CGRect(x: 50, y: 200, width: view.frame.size.width - 100, height: 50))
+        let textField2 = ZMTextField(frame: CGRect(x: 50, y: 160, width: view.frame.size.width - 100, height: 50))
         textField2.backgroundColor = UIColor.gray
         textField2.maxLength = 11
         textField2.isRemoveEmoji = true
@@ -27,10 +27,24 @@ class ViewController: UIViewController {
     }()
     
     private lazy var textView: ZMTextView = {
-        let textView = ZMTextView(frame: CGRect(x: 50, y: 300, width: view.frame.size.width - 100, height: 200))
+        let textView = ZMTextView(frame: CGRect(x: 50, y: 220, width: view.frame.size.width - 100, height: 200))
         textView.backgroundColor = UIColor.gray
         textView.maxLength = 11
         textView.isRemoveEmoji = true
+        textView.placeholder = "占位字符1"
+        textView.placeholderColor = UIColor.red
+        textView.textColor = UIColor.white
+        return textView
+    }()
+    
+    private lazy var textView2: ZMTextView = {
+        let textView = ZMTextView(frame: CGRect(x: 50, y: 430, width: view.frame.size.width - 100, height: 200))
+        textView.backgroundColor = UIColor.gray
+        textView.maxLength = 11
+        textView.isRemoveEmoji = true
+        textView.placeholder = "占位字符2"
+        textView.placeholderColor = UIColor.red
+        textView.textColor = UIColor.white
         return textView
     }()
     
@@ -40,6 +54,7 @@ class ViewController: UIViewController {
         view.addSubview(textField1)
         view.addSubview(textField2)
         view.addSubview(textView)
+        view.addSubview(textView2)
         
         textField1.didValueChange = { textField in
             debugPrint("textField1: \(textField.text ?? "")")
@@ -63,6 +78,14 @@ class ViewController: UIViewController {
         
         textView.didMaxLength = { textField in
             debugPrint("textView max")
+        }
+        
+        textView2.didValueChange = { textField in
+            debugPrint("textView2: \(textField.text ?? "")")
+        }
+        
+        textView2.didMaxLength = { textField in
+            debugPrint("textView2 max")
         }
         
     }
