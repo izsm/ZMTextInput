@@ -16,6 +16,13 @@ open class ZMTextView: UITextView {
         }
     }
     
+    /// 占位文字体大小
+    open var placeholderFont: UIFont? {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+    
     /// 占位文字颜色
     open var placeholderColor: UIColor = UIColor.gray {
         didSet {
@@ -46,8 +53,8 @@ open class ZMTextView: UITextView {
         guard !hasText else { return }
         
         var rect = rect
-        let attrs: [NSAttributedString.Key : Any] = [NSAttributedString.Key.font: font ?? UIFont.systemFont(ofSize: 12),
-                     NSAttributedString.Key.foregroundColor: placeholderColor]
+        let attrs: [NSAttributedString.Key : Any] = [NSAttributedString.Key.font: placeholderFont ?? (font ?? UIFont.systemFont(ofSize: 12)),
+                                                     NSAttributedString.Key.foregroundColor: placeholderColor]
         rect.origin.x = 5
         rect.origin.y = 8
         rect.size.width -= 2 * rect.origin.x

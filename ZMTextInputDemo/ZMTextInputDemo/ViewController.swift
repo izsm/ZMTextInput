@@ -34,6 +34,7 @@ class ViewController: UIViewController {
         textView.placeholder = "占位字符1"
         textView.placeholderColor = UIColor.red
         textView.textColor = UIColor.white
+        textView.font = UIFont.systemFont(ofSize: 16)
         return textView
     }()
     
@@ -44,6 +45,7 @@ class ViewController: UIViewController {
         textView.isRemoveEmoji = true
         textView.placeholder = "占位字符2"
         textView.placeholderColor = UIColor.red
+        textView.placeholderFont = UIFont.systemFont(ofSize: 20)
         textView.textColor = UIColor.white
         return textView
     }()

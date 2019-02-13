@@ -9,7 +9,7 @@
 Pod::Spec.new do |spec|
 
 spec.name         = "ZMTextInput"
-spec.version      = "0.1.0"
+spec.version      = "0.1.1"
 spec.license      = "MIT"
 spec.summary      = "tests ZMTextInput."
 spec.homepage     = "https://github.com/ZSMHup/ZMTextInput"
